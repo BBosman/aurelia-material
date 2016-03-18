@@ -1,6 +1,6 @@
 {
   "name": "aurelia-material",
-  "version": "0.0.3",
+  "version": "0.2.0",
   "description": "Aurelia wrapper for Material Design Lite",
   "main": "index.js",
   "keywords": [
@@ -8,47 +8,53 @@
     "material design lite"
   ],
   "dependencies": {
-    "del": "^1.2.0",
+    "material-design-lite": "^1.1.3"
+  },
+  "devDependencies": {
+    "aurelia-tools": "^0.2.4",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-stage-1": "^6.13.0",
+    "del": "^2.2.1",
     "gulp": "^3.9.0",
-    "gulp-babel": "^5.1.0",
-    "gulp-changed": "^1.2.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-changed": "^1.3.1",
     "gulp-plumber": "^1.0.1",
     "gulp-sourcemaps": "^1.5.2",
-    "material-design-lite": "^1.0.0-3",
-    "run-sequence": "^1.1.1",
-    "vinyl-paths": "^1.0.0"
+    "jspm": "^0.16.42",
+    "run-sequence": "^1.2.2",
+    "vinyl-paths": "^2.1.0"
   },
-  "devDependencies": {},
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/redpelicans/aurelia-material.git"
+    "url": "git+https://github.com/BBosman/aurelia-material.git"
   },
   "contributors": [
     "eric.basley@redpelicans.com",
-    "nicolas.briemant@redpelicans.com"
+    "nicolas.briemant@redpelicans.com",
+    "github@nazgul.nu"
   ],
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/redpelicans/aurelia-material/issues"
+    "url": "https://github.com/BBosman/aurelia-material/issues"
   },
-  "homepage": "https://github.com/redpelicans/aurelia-material#readme",
+  "homepage": "https://github.com/BBosman/aurelia-material#readme",
   "jspm": {
     "directories": {
       "lib": "dist"
     },
     "dependencies": {
-      "google/material-design-lite": "github:google/material-design-lite@^1.0.0",
-      "jquery": "github:components/jquery@^2.1.4",
-      "lodash": "npm:lodash@^3.10.0"
+      "google/material-design-lite": "github:google/material-design-lite@^1.1.3",
+      "lodash": "npm:lodash@^4.14.2"
     },
     "devDependencies": {
-      "babel": "npm:babel-core@^5.1.13",
-      "babel-runtime": "npm:babel-runtime@^5.1.13",
-      "core-js": "npm:core-js@^0.9.4"
+      "babel": "npm:babel-core@^5.8.38",
+      "babel-runtime": "npm:babel-runtime@^5.8.38",
+      "core-js": "npm:core-js@^1.1.4"
     },
     "overrides": {
-      "github:google/material-design-lite@1.0.0": {
+      "github:google/material-design-lite@1.1.3": {
         "main": "./material.js"
       }
     }

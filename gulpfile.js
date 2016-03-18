@@ -1,34 +1,26 @@
-var gulp = require('gulp');
-var del = require('del');
-var vinylPaths = require('vinyl-paths');
-var babel = require('gulp-babel');
-var changed = require('gulp-changed');
-var plumber = require('gulp-plumber');
-var sourcemaps = require('gulp-sourcemaps');
-var runSequence = require('run-sequence');
-var path = require('path');
-var paths = {
-    source:'src/**/*.js'
-  , html:'src/**/*.html'
-  , dist: 'dist'
-  , sourceRoot: path.join(__dirname, 'src'),
-}
-
+const gulp = require('gulp');
+const del = require('del');
+const vinylPaths = require('vinyl-paths');
+const babel = require('gulp-babel');
+const changed = require('gulp-changed');
+const plumber = require('gulp-plumber');
+const sourcemaps = require('gulp-sourcemaps');
+const runSequence = require('run-sequence');
+const path = require('path');
+const paths = {
+  source: 'src/**/*.js',
+  dist: 'dist',
+  sourceRoot: path.join(__dirname, 'src')
+};
 
 // need this options to use decorators
-var compilerOptions = {
-  stage: 0,
-  optional: [
-    "es7.decorators",
-    "regenerator",
-    "asyncToGenerator",
-    "es7.classProperties",
-    "es7.asyncFunctions"
-  ]
+const compilerOptions = {
+  presets: ['es2015', 'stage-1'],
+  plugins: ['transform-decorators-legacy']
 };
 
 
-gulp.task('build-client', function () {
+gulp.task('build-client', () => {
   return gulp.src(paths.source)
     .pipe(plumber())
     .pipe(changed(paths.dist, {extension: '.js'}))
@@ -38,26 +30,19 @@ gulp.task('build-client', function () {
     .pipe(gulp.dest(paths.dist));
 });
 
-gulp.task('build-html', function () {
-  return gulp.src(paths.html)
-    .pipe(changed(paths.dist, {extension: '.html'}))
-    .pipe(gulp.dest(paths.dist));
-});
 
-
-gulp.task('build', function(callback) {
+gulp.task('build', (callback) => {
   return runSequence(
     'clean',
-    ['build-client', 'build-html'],
+    'build-client',
     callback
   );
 });
 
-gulp.task('clean', function() {
- return gulp.src([paths.dist])
+gulp.task('clean', () => {
+  return gulp.src([paths.dist])
     .pipe(vinylPaths(del));
 });
-
 
 gulp.task('default', ['build']);
 

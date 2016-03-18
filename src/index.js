@@ -1,4 +1,4 @@
-export function configure(config){
+export function configure(config) {
   config.aurelia.use.globalResources('./mdl');
 }
 

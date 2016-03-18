@@ -1,6 +1,6 @@
 # aurelia-material
 
-Aurelia wrapper for [Material Design Lite](http://www.getmdl.io).
+Aurelia wrapper for [Material Design Lite](http://www.getmdl.io), forked from the one created by [redpelicans](https://github.com/redpelicans/aurelia-material). See below for differences.
 
 
 [Material Design Lite](http://www.getmdl.io) has been designed for static html sites. To use it on dynamic ones, we have to register explictly new DOM elements (see [MDL](http://www.getmdl.io/started/index.html#dynamic))
@@ -59,7 +59,7 @@ Some MDL elements are not in the list because we don't have to register them, so
 1. In your project install the plugin via `jspm` with following command
 
 ```
-  $ jspm install github:redpelicans/aurelia-material
+  $ jspm install github:BBosman/aurelia-material
 ```
 
 2. Make sure you use [manual bootstrapping](http://aurelia.io/docs#startup-and-configuration). In order to do so open your `index.html` and locate the element with the attribute aurelia-app:
@@ -77,7 +77,7 @@ Some MDL elements are not in the list because we don't have to register them, so
       .standardConfiguration()
       .developmentLogging()
       // Install the plugin
-      .plugin('redpelicans/aurelia-material');
+      .plugin('BBosman/aurelia-material');
 
     aurelia.start().then(a => a.setRoot());
   }
@@ -87,10 +87,18 @@ Some MDL elements are not in the list because we don't have to register them, so
   
   
   ```html
-      <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
+      <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.1.3/material.indigo-pink.min.css">
 ```
 5. Use wrapped MDL components in your hml views as explained below.
 
 
 See online [Demo](http://redpelicans.github.io/aurelia-material-sample/)
   
+
+### Differences
+
+This fork differs from the [redpelicans](https://github.com/redpelicans/aurelia-material) version in the following ways:
+
+1. Dropped the jQuery dependency.
+2. Updated the build to use Babel 6.
+3. General cleanup and tweaks.
